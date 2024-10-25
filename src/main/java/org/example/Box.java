@@ -3,7 +3,7 @@ package org.example;
 import java.util.Collections;
 import java.util.List;
 
-public class Box <T, V extends Number & Comparable<V>> implements BoxOperations{
+public class Box <T, V extends Number & Comparable<V>> implements BoxOperations <V>{
     T genericAttribute;
     V largestValue;
     private String name;
@@ -13,11 +13,11 @@ public class Box <T, V extends Number & Comparable<V>> implements BoxOperations{
     }
 
     @Override
-    public void setLargestValue(Number firstInput, Number secondInput) {
+    public void setLargestValue(V firstInput, V secondInput) {
         if (firstInput.doubleValue() > secondInput.doubleValue()) {
-            this.largestValue = (V) firstInput;
+            this.largestValue = firstInput;
         }else {
-            this.largestValue = (V) secondInput;
+            this.largestValue = secondInput;
         }
     }
     public boolean hasSameName(Box<?,?>secondBox){
@@ -28,14 +28,15 @@ public class Box <T, V extends Number & Comparable<V>> implements BoxOperations{
         return (T) valueToCast;
     }
 
+
     @Override
-    public void setLargestValueFromList(List list){
-        this.largestValue = (V) Collections.max(list);
+    public void setLargestValueFromList(List <V> list){
+        this.largestValue = Collections.max(list);
 
     }
     @Override
     public V getLargestValue() {
-        return (V) largestValue;
+        return largestValue;
     }
 
     public T getGenericAttribute() {
