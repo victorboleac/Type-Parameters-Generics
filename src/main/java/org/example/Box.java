@@ -17,7 +17,7 @@ public class Box <T, V extends Number> implements BoxOperations{
             this.largestValue = (V) secondInput;
         }
     }
-    public boolean hasSameName(Box<? extends T, ? extends V> secondBox){
+    public boolean hasSameName(Box<?,?>secondBox){
 
         return this.name.equals(secondBox.name);
     }

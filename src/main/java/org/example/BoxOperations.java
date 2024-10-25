@@ -1,6 +1,6 @@
 package org.example;
 
-public interface BoxOperations <T, V extends Number>{
+public interface BoxOperations <V extends Number>{
 
 
 
