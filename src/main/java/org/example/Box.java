@@ -1,6 +1,9 @@
 package org.example;
 
-public class Box <T, V extends Number> implements BoxOperations{
+import java.util.Collections;
+import java.util.List;
+
+public class Box <T, V extends Number & Comparable<V>> implements BoxOperations{
     T genericAttribute;
     V largestValue;
     private String name;
@@ -23,6 +26,12 @@ public class Box <T, V extends Number> implements BoxOperations{
     }
     public T castValue(Object valueToCast){
         return (T) valueToCast;
+    }
+
+    @Override
+    public void setLargestValueFromList(List list){
+        this.largestValue = (V) Collections.max(list);
+
     }
     @Override
     public V getLargestValue() {
