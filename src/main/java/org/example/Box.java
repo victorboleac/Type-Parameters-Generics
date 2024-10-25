@@ -35,7 +35,7 @@ public class Box <T, V extends Number & Comparable<V>> implements BoxOperations{
     }
     @Override
     public V getLargestValue() {
-        return largestValue;
+        return (V) largestValue;
     }
 
     public T getGenericAttribute() {
